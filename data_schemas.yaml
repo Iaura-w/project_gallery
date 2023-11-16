@@ -1,0 +1,115 @@
+definitions:
+  SesjaResponse:
+    required:
+      - Id
+      - Token
+      - Waznosc
+    properties:
+      Id:
+        type: string
+      Token:
+        type: string
+      Waznosc:
+        type: string
+        format: data-time
+  AdministratorResponse:
+    required:
+      - Prawa
+    properties:
+      Prawa:
+        type: string
+  UzytkownikResponse:
+    required:
+      - Id
+      - Imie
+      - Nazwisko
+      - Login
+      - Haslo
+      - Email
+    properties:
+      Id:
+        type: string
+      Imie:
+        type: string
+      Nazwisko:
+        type: string
+      Login:
+        type: string
+      Haslo:
+        type: string
+        format: password
+      Email:
+        type: string
+        format: email
+  GaleriaResponse:
+    required:
+      - Id
+      - Tytul
+      - Opis
+      - Data
+      - Widocznosc
+    properties:
+      Id:
+        type: string
+      Tytul:
+        type: string
+      Opis:
+        type: string
+      Data:
+        type: string
+        format: data-time
+      Widocznosc:
+        type: boolean
+  ObrazResponse:
+    required:
+      - Id
+      - Tytul
+      - Opis
+      - Data
+      - Nazwa_pliku
+      - Sciezka
+      - Rozmiar
+    properties:
+      Id:
+        type: string
+      Tytul:
+        type: string
+      Opis:
+        type: string
+      Data:
+        type: string
+        format: data-time
+      Nazwa_pliku:
+        type: string
+      Sciezka:
+        type: string
+      Rozmiar:
+        type: integer
+  MiniaturaResponse:
+    required:
+      - Typ
+    properties:
+      Typ:
+        type: string
+  TagResponse:
+    required:
+      - Id
+      - Tekst
+    properties:
+      Id:
+        type: string
+      Tekst:
+        type: string
+  KomentarzResponse:
+    required:
+      - Id
+      - Tresc
+      - Data
+    properties:
+      Id:
+        type: string
+      Tresc:
+        type: string
+      Data:
+        type: string
+        format: data-time
