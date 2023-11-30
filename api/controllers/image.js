@@ -1,5 +1,7 @@
 "use strict";
 
+const { text } = require("express");
+
 module.exports = {
   listImages,
   createImage,
@@ -18,11 +20,11 @@ var testData = {
 };
 
 function listImages(req, res, next) {
-  res.json();
+  res.json([testData]);
 }
 
 function createImage(req, res, next) {
-  res.json();
+  res.json(testData);
 }
 
 function readImage(req, res, next) {
@@ -30,9 +32,23 @@ function readImage(req, res, next) {
 }
 
 function updateImage(req, res, next) {
-  res.json();
+  var updated = testData
+
+  if(req.param('title') != null)
+    updated.title = req.param('title')
+  if(req.param('description') != null)
+    updated.description = req.param('description')
+  if(req.param('date') != null)
+    updated.date = req.param('date')
+
+  
+  res.json(updated);
 }
 
 function deleteImage(req, res, next) {
-  res.json();
+  var del = {
+    id: "fs4322",
+    status: "deleted"
+  }
+  res.json(del);
 }
