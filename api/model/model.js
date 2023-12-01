@@ -1,5 +1,18 @@
 const thinkagain = require("thinkagain")();
 
+// Gallery
+var Gallery = thinkagain.createModel("Gallery", {
+    type: "object",
+    properties: {
+      id: { type: "string" },
+      name: { type: "string" },
+      description: { type: "string" },
+    },
+    required: ["name"],
+  });
+  
+  exports.Gallery = Gallery;
+
 // Image
 var Image = thinkagain.createModel("Image", {
   type: "object",
@@ -18,16 +31,3 @@ var Image = thinkagain.createModel("Image", {
 Image.belongsTo(Gallery, 'gallery', 'idGallery', 'id');
 
 exports.Image = Image;
-
-// Gallery
-var Gallery = thinkagain.createModel("Gallery", {
-    type: "object",
-    properties: {
-      id: { type: "string" },
-      name: { type: "string" },
-      description: { type: "string" },
-    },
-    required: ["name"],
-  });
-  
-  exports.Gallery = Gallery;
