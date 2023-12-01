@@ -28,27 +28,31 @@ function createImage(req, res, next) {
 }
 
 function readImage(req, res, next) {
+  var id = req.swagger.params.id.value
+
   res.json(testData);
 }
 
 function updateImage(req, res, next) {
+  var id = req.swagger.params.id.value
   var updated = testData
 
-  if(req.param('title') != null)
-    updated.title = req.param('title')
-  if(req.param('description') != null)
-    updated.description = req.param('description')
-  if(req.param('date') != null)
-    updated.date = req.param('date')
+  if (req.body['title'] != null) 
+    updated.title = req.body['title'];
+  if (req.body['description'] != null)
+    updated.description = req.body['description'];
+  if (req.body['date'] != null) 
+    updated.date = req.body['date'];
 
-  
   res.json(updated);
 }
 
 function deleteImage(req, res, next) {
+  var id = req.swagger.params.id.value
   var del = {
     id: "fs4322",
-    status: "deleted"
-  }
+    status: "deleted",
+  };
+
   res.json(del);
 }
