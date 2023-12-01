@@ -2,13 +2,15 @@
   "name": "node_gallery",
   "version": "0.0.1",
   "private": true,
-  "description": "New Swagger API Project",
+  "description": "projekt galeria",
   "keywords": [],
-  "author": "",
+  "author": "Laura Wołoszun",
   "license": "",
   "main": "app.js",
   "dependencies": {
     "express": "^4.12.3",
+    "express-handlebars": "^5.3.5",
+    "hbs": "^4.2.0",
     "swagger-express-mw": "^0.1.0"
   },
   "devDependencies": {
