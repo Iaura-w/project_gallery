@@ -1,7 +1,7 @@
 "use strict";
 
 const { text } = require("express");
-var model = require("../model/model.js");
+var model = require("../models/model.js");
 
 module.exports = {
   listImages,
