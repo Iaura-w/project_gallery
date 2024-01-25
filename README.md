@@ -1,4 +1,5 @@
 # Gallery project
+http://localhost:3000/pictures
 
 ## Endpoints
 ### pictures:
