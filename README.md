@@ -9,4 +9,3 @@ http://localhost:3000/pictures
 - #### `POST /pictures/{imageId}` - update picture by id
 - #### `DELETE /pictures/{imageId}` - delete picture by id
 - #### `POST /pictures/create` - add new picture
-

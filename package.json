@@ -6,12 +6,13 @@
   "keywords": [],
   "author": "Laura Wołoszun",
   "license": "",
-  "main": "app.js",
+  "main": "index.js",
   "dependencies": {
     "express": "^4.12.3",
     "express-handlebars": "^5.3.5",
     "hbs": "^4.2.0",
-    "swagger-express-mw": "^0.1.0"
+    "mongodb": "^4.4.1",
+    "swagger-express-mw": "^0.7.0"
   },
   "devDependencies": {
     "should": "^7.1.0",

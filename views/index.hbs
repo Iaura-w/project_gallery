@@ -1,0 +1,44 @@
+<div class="container">
+  <h1 class="text-center">{{ title }}</h1>
+  <div class="row">
+    {{#each items}}
+    <div class="col-md-4 mb-3">
+      <div class="card">
+        <img src="{{ this.sciezka }}/{{ this.nazwa }}.png" class="card-img-top" alt="{{ this.nazwa }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ this.nazwa }}</h5>
+          <p class="card-text">Rozmiar: {{ this.rozmiar }}</p>
+          <a href="/pictures/{{ this._id }}" class="btn btn-primary">Pokaż</a>
+          <a href="/pictures/update/{{ this._id }}" class="btn btn-secondary">Edytuj</a>
+          <button class="btn btn-danger" onclick="deletePicture('{{ this._id }}')">Usuń</button>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>
+
+<script>
+  function deletePicture(id) {
+    if(confirm('Czy na pewno chcesz usunąć to zdjęcie?')) {
+      fetch('/pictures/delete', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ id: id })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if(data.success) {
+          window.location.reload();
+        } else {
+          alert('Wystąpił błąd podczas usuwania zdjęcia.');
+        }
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+    }
+  }
+</script>
