@@ -8,26 +8,32 @@ const picturesRoutes = require('./routes/pictures.js');
 const mongoose = require('./db/mongoose');
 const Picture = require('./models/picture');
 
-// Moduły potrzebne do generowania widoków
 const hbs = require('express-handlebars');
 const path = require('path');
 
-// Ustawienia bodyParser do obsługi zapytań JSON
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(bodyParser.json());
 
-// Ustawienie ścieżek dla routerów
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
+
 app.use('/users', usersRoutes);
 app.use('/pictures', picturesRoutes);
 
-// Ustawienie silnika szablonów dla handlebars
 app.engine('hbs', hbs.engine({
     extname: 'hbs', 
     defaultLayout: 'layout', 
-    layoutsDir: __dirname + '/views/layouts/'
+    layoutsDir: __dirname + '/views/layouts/',
+    runtimeOptions: {
+        allowProtoPropertiesByDefault: true,
+        allowProtoMethodsByDefault: true
+    }
 }));
 app.set('view engine', 'hbs');
 
-// Uruchomienie serwera
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
